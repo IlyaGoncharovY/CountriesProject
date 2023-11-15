@@ -1,16 +1,24 @@
 import React from 'react';
 import {FlatList, Text, View} from 'react-native';
+import {ParamListBase, useNavigation} from '@react-navigation/native';
 
-import {countriesAPI} from '../reducer/CountriesService';
-import {CountriesItem} from '../../countrieItem/component/CountriesItem';
+import {countriesAPI} from '../../../api/CountriesService';
+import {CountriesListItem} from './Item/CountriesListItem';
 import {CountriesTypeChild} from '../../../common/interfaces/Interfaces';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 
 export const CountriesList = () => {
   const {
     data: countries,
     error,
     isLoading,
-  } = countriesAPI.useGetAllCountriesQuery("");
+  } = countriesAPI.useGetAllCountriesQuery('');
+
+  const navigation = useNavigation<NativeStackNavigationProp<ParamListBase>>();
+
+  const handleCountryClick = (countriesName: string) => {
+    navigation.navigate('CountriesItem', {countriesName});
+  };
   return (
     <>
       <Text>CountriesList</Text>
@@ -26,7 +34,12 @@ export const CountriesList = () => {
       )}
       <FlatList
         data={countries && countries}
-        renderItem={({item}) => <CountriesItem countries={item} />}
+        renderItem={({item}) => (
+          <CountriesListItem
+            countries={item}
+            onPress={() => handleCountryClick(item.name.common)}
+          />
+        )}
         keyExtractor={(item: CountriesTypeChild) => item.ccn3 + 1}
       />
     </>
