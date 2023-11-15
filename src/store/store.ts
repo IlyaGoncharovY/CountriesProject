@@ -4,7 +4,7 @@ import {
   configureStore,
   ThunkAction,
 } from '@reduxjs/toolkit';
-import {countriesAPI} from '../features/countriesList/reducer/CountriesService';
+import {countriesAPI} from '../api/CountriesService';
 
 const rootReducer = combineReducers({
   [countriesAPI.reducerPath]: countriesAPI.reducer,

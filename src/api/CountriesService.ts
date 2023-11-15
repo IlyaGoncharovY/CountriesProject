@@ -1,5 +1,8 @@
 import {createApi, fetchBaseQuery} from '@reduxjs/toolkit/dist/query/react';
-import {CountriesType} from '../../../common/interfaces/Interfaces';
+import {
+  CountriesType,
+  CountriesTypeChild,
+} from '../common/interfaces/Interfaces';
 
 export const countriesAPI = createApi({
   reducerPath: 'countriesApi',
@@ -8,6 +11,11 @@ export const countriesAPI = createApi({
     getAllCountries: builder.query<CountriesType, string>({
       query: () => ({
         url: 'all/',
+      }),
+    }),
+    getCurrentCountries: builder.query<CountriesTypeChild, string>({
+      query: (countriesName: string) => ({
+        url: `name/${countriesName}`,
       }),
     }),
   }),
