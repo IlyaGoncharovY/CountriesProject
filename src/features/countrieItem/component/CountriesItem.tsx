@@ -1,7 +1,10 @@
 import React from 'react';
-import {Text, View} from 'react-native';
-import {countriesAPI} from '../../../api/CountriesService';
+import {FlatList, Text, View} from 'react-native';
 import {RouteProp, useRoute} from '@react-navigation/native';
+
+import {ItemCountries} from './item/ItemCountries';
+import {countriesAPI} from '../../../api/CountriesService';
+import {CountriesTypeChild} from '../../../common/interfaces/Interfaces';
 
 type StackParamList = {
   CountriesItem: {countriesName: string};
@@ -44,7 +47,11 @@ export const CountriesItem = () => {
 
   return (
     <View>
-      <Text>{currentCountries.name && currentCountries.name.common}</Text>
+      <FlatList
+        data={currentCountries}
+        renderItem={({item}) => <ItemCountries countriesItem={item} />}
+        keyExtractor={(item: CountriesTypeChild) => item.ccn3 + 1}
+      />
     </View>
   );
 };

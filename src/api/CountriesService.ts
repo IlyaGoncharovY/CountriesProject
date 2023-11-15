@@ -13,7 +13,7 @@ export const countriesAPI = createApi({
         url: 'all/',
       }),
     }),
-    getCurrentCountries: builder.query<CountriesTypeChild, string>({
+    getCurrentCountries: builder.query<CountriesTypeChild[], string>({
       query: (countriesName: string) => ({
         url: `name/${countriesName}`,
       }),

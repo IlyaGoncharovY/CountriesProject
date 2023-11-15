@@ -33,7 +33,7 @@ export const CountriesList = () => {
         </View>
       )}
       <FlatList
-        data={countries && countries}
+        data={countries}
         renderItem={({item}) => (
           <CountriesListItem
             countries={item}
