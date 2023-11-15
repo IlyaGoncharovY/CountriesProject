@@ -1,7 +1,7 @@
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {CountriesList} from '../countriesList/component/CountriesList';
-import { CountriesItem } from "../countrieItem/component/CountriesItem";
+import {CountriesItem} from '../countrieItem/component/CountriesItem';
 
 const Stack = createNativeStackNavigator();
 
