@@ -18,5 +18,10 @@ export const countriesAPI = createApi({
         url: `name/${countriesName}`,
       }),
     }),
+    getTranslateCountry: builder.query<CountriesTypeChild[], string>({
+      query: (translation: string) => ({
+        url: `translation/${translation}`,
+      }),
+    }),
   }),
 });
