@@ -20,7 +20,7 @@ export const CountriesItem = () => {
     error,
     isLoading,
   } = countriesAPI.useGetCurrentCountriesQuery(countriesName);
-  console.log(countriesName);
+
   if (error) {
     return (
       <View>
