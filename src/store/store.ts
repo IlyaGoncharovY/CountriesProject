@@ -4,9 +4,12 @@ import {
   configureStore,
   ThunkAction,
 } from '@reduxjs/toolkit';
+
 import {countriesAPI} from '../api/CountriesService';
+import SearchReducer from '../features/search/reducer/searchSlice';
 
 const rootReducer = combineReducers({
+  search: SearchReducer,
   [countriesAPI.reducerPath]: countriesAPI.reducer,
 });
 export const store = configureStore({
