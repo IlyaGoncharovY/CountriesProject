@@ -9,8 +9,8 @@ interface IItemCountries {
 export const ItemCountries: FC<IItemCountries> = ({countriesItem}) => {
   return (
     <View>
-      <Text>{countriesItem.capital} </Text>
-      <Text>{countriesItem.area} </Text>
+      <Text>Capitals: {countriesItem.capital} </Text>
+      <Text>Area: {countriesItem.area} </Text>
     </View>
   );
 };

@@ -2,10 +2,13 @@ import React from 'react';
 import {FlatList, Text, View} from 'react-native';
 import {ParamListBase, useNavigation} from '@react-navigation/native';
 
+import {useAppSelector} from '../../../store/hook';
 import {countriesAPI} from '../../../api/CountriesService';
 import {CountriesListItem} from './Item/CountriesListItem';
 import {CountriesTypeChild} from '../../../common/interfaces/Interfaces';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {SearchMainComponent} from '../../search/components/SearchMainComponent';
+import {TranslateCountry} from '../../translateCountry/components/TranslateCountry';
 
 export const CountriesList = () => {
   const {
@@ -14,14 +17,18 @@ export const CountriesList = () => {
     isLoading,
   } = countriesAPI.useGetAllCountriesQuery('');
 
+  const {isOpenAllCountries} = useAppSelector(state => state.search);
+
   const navigation = useNavigation<NativeStackNavigationProp<ParamListBase>>();
 
   const handleCountryClick = (countriesName: string) => {
     navigation.navigate('CountriesItem', {countriesName});
   };
+
   return (
     <>
-      <Text>CountriesList</Text>
+      <SearchMainComponent />
+      <TranslateCountry />
       {isLoading && (
         <View>
           <Text>Loading...</Text>
@@ -32,16 +39,18 @@ export const CountriesList = () => {
           <Text>Error</Text>
         </View>
       )}
-      <FlatList
-        data={countries}
-        renderItem={({item}) => (
-          <CountriesListItem
-            countries={item}
-            onPress={() => handleCountryClick(item.name.common)}
-          />
-        )}
-        keyExtractor={(item: CountriesTypeChild) => item.ccn3 + 1}
-      />
+      {isOpenAllCountries && (
+        <FlatList
+          data={countries}
+          renderItem={({item}) => (
+            <CountriesListItem
+              countries={item}
+              onPress={() => handleCountryClick(item.name.common)}
+            />
+          )}
+          keyExtractor={(item: CountriesTypeChild) => item.ccn3 + 1}
+        />
+      )}
     </>
   );
 };
