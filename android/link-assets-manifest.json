@@ -1,0 +1,13 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "assets/fonts/kanit_light.ttf",
+      "sha1": "5f73684474721ddfc98168f5b8a634d7552e89d4"
+    },
+    {
+      "path": "assets/fonts/kanit_semi_bold.ttf",
+      "sha1": "9715fb086966063735f84aa37f3e2dcd654ce999"
+    }
+  ]
+}
