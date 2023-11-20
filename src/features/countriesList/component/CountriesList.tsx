@@ -17,7 +17,7 @@ export const CountriesList = () => {
     isLoading,
   } = countriesAPI.useGetAllCountriesQuery('');
 
-  const {isOpenAllCountries} = useAppSelector(state => state.search);
+  const {isOpenAllCountries, isEditMode} = useAppSelector(state => state.search);
 
   const navigation = useNavigation<NativeStackNavigationProp<ParamListBase>>();
 
@@ -42,9 +42,11 @@ export const CountriesList = () => {
       {isOpenAllCountries && (
         <FlatList
           data={countries}
-          renderItem={({item}) => (
+          renderItem={({item, index}) => (
             <CountriesListItem
               countries={item}
+              index={index}
+              isEditMode={isEditMode}
               onPress={() => handleCountryClick(item.name.common)}
             />
           )}
