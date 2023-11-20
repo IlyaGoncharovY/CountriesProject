@@ -14,7 +14,7 @@ export const Navigation = () => {
           component={CountriesList}
           options={{
             title: 'CountriesList',
-            headerStyle: {backgroundColor: '#e78fb3'},
+            headerStyle: {backgroundColor: '#fcf2c8'},
           }}
         />
         <Stack.Screen
@@ -22,7 +22,7 @@ export const Navigation = () => {
           component={CountriesItem}
           options={{
             title: 'CountriesItem',
-            headerStyle: {backgroundColor: '#e78fb3'},
+            headerStyle: {backgroundColor: '#fcf2c8'},
           }}
         />
       </Stack.Navigator>
