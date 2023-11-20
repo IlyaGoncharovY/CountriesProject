@@ -1,5 +1,7 @@
 import React, {FC} from 'react';
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {StyleSheet, TouchableOpacity, View} from 'react-native';
+
+import {TextInfo} from '../../../../common/components/TextInfo';
 import {CountriesTypeChild} from '../../../../common/interfaces/Interfaces';
 
 interface ICountriesItem {
@@ -23,11 +25,9 @@ export const CountriesListItem: FC<ICountriesItem> = ({
           onPress={onPress}
           style={[styles.container, {backgroundColor}]}>
           <View style={styles.viewInfo}>
-            <Text style={styles.textStyle}>
-              Country: {countries.name.common}
-            </Text>
-            <Text style={styles.textStyle}>Capital: {countries.capital}</Text>
-            <Text style={styles.textStyle}>Flag: {countries.flag}</Text>
+            <TextInfo label={'Country'} value={countries.name.common} />
+            <TextInfo label={'Capital'} value={countries.capital} />
+            <TextInfo label={'Flag'} value={countries.flag} />
           </View>
         </TouchableOpacity>
       )}
@@ -43,10 +43,5 @@ const styles = StyleSheet.create({
   },
   viewInfo: {
     padding: 10,
-  },
-  textStyle: {
-    // fontWeight: 'bold',
-    fontSize: 16,
-    fontFamily: 'kanit_semi_bold',
   },
 });
