@@ -28,12 +28,13 @@ export const TranslateCountry = () => {
       {isEditMode && (
         <FlatList
           data={translateCountries}
-          renderItem={({item}) => (
+          renderItem={({item, index}) => (
             <TranslateCountryItem
               country={item}
               onPress={() => handleCountryClick(item.name.common)}
               isLoading={isLoading}
               error={error}
+              index={index}
             />
           )}
           keyExtractor={(item: CountriesTypeChild) => item.ccn3 + 1}
