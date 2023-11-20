@@ -17,7 +17,9 @@ export const CountriesList = () => {
     isLoading,
   } = countriesAPI.useGetAllCountriesQuery('');
 
-  const {isOpenAllCountries, isEditMode} = useAppSelector(state => state.search);
+  const {isOpenAllCountries, isEditMode} = useAppSelector(
+    state => state.search,
+  );
 
   const navigation = useNavigation<NativeStackNavigationProp<ParamListBase>>();
 
