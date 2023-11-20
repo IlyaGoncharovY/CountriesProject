@@ -1,6 +1,36 @@
 /**
  * CountriesType common type for all countries
- * @param CountriesTypeChild array countries
+ * @type CountriesTypeChild array countries
+ * @type name CountriesTypeChildName
+ * @type tld string[]
+ * @type cca2 string
+ * @type ccn3 string
+ * @type independent boolean
+ * @type status string
+ * @type unMember boolean
+ * @type currencies CountriesTypeChildCurrencies
+ * @type CountriesTypeChildIdd idd
+ * @type capital string[]
+ * @type altSpellings string[]
+ * @type region string
+ * @type languages CountriesTypeChildLanguages
+ * @type translations CountriesTypeChildTranslations
+ * @type latlng number[]
+ * @type landlocked boolean
+ * @type area number
+ * @type demonyms CountriesTypeChildDemonyms
+ * @type flag string
+ * @type maps CountriesTypeChildMaps
+ * @type population number
+ * @type fifa string
+ * @type car CountriesTypeChildCar
+ * @type timezones string[]
+ * @type continents string[]
+ * @type flags CountriesTypeChildFlags
+ * @type coatOfArms CountriesTypeChildCoatOfArms
+ * @type startOfWeek string
+ * @type capitalInfo CountriesTypeChildCapitalInfo
+ * @type postalCode CountriesTypeChildPostalCode
  */
 export type CountriesType = CountriesTypeChild[];
 export type CountriesTypeChildNameNativeNameEng = {
